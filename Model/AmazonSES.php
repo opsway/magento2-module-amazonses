@@ -78,13 +78,11 @@ class AmazonSES extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
      */
     public function sendMessage()
     {
-        $this->eventManager->dispatch('send_email_event',
-            [
+        $this->eventManager->dispatch('send_email_event', [
                 'context' => $this,
             ]);
 
         if ($this->getStrategy() != null && $this->getStrategy()->getConfig()) {
-
             return [
                 'result' => $this->getStrategy()->setMail($this->message)->send()
             ];

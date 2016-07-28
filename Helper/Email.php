@@ -5,7 +5,6 @@
 
 namespace OpsWay\EmailAmazonSES\Helper;
 
-
 class Email extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
@@ -60,7 +59,7 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
      * @param  Mixed $receiverInfo
      * @return void
      */
-    public function sendMail($senderInfo,$receiverInfo)
+    public function sendMail($senderInfo, $receiverInfo)
     {
         $this->inlineTranslation->suspend();
 
@@ -74,12 +73,11 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
             )
             ->setTemplateVars([])
             ->setFrom($senderInfo)
-            ->addTo($receiverInfo['email'],$receiverInfo['name'])
+            ->addTo($receiverInfo['email'], $receiverInfo['name'])
             ->getTransport();
 
         $transport->sendMessage();
 
         $this->inlineTranslation->resume();
     }
-
 }

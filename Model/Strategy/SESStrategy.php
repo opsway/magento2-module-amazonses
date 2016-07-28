@@ -99,8 +99,9 @@ class SESStrategy implements StrategyInterface
      * @param   date $date
      * @return  string
      */
-    private function _buildAuthKey($date){
-        return sprintf('AWS3-HTTPS AWSAccessKeyId=%s,Algorithm=HmacSHA256,Signature=%s', $this->config['keyId'], base64_encode(hash_hmac('sha256', $date, $this->config['privateKey'], TRUE)));
+    private function _buildAuthKey($date)
+    {
+        return sprintf('AWS3-HTTPS AWSAccessKeyId=%s,Algorithm=HmacSHA256,Signature=%s', $this->config['keyId'], base64_encode(hash_hmac('sha256', $date, $this->config['privateKey'], true)));
     }
 
     /**

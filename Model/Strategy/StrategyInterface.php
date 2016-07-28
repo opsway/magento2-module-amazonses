@@ -4,7 +4,6 @@
  */
 namespace OpsWay\EmailAmazonSES\Model\Strategy;
 
-
 interface StrategyInterface
 {
     public function getConfig();
