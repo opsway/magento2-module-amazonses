@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 OpsWay. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
+    <router id="admin">
+        <route id="OpsWay" frontName="OpsWay">
+            <module name="OpsWay_EmailAmazonSES" before="Magento_Backend" />
+        </route>
+    </router>
+</config>

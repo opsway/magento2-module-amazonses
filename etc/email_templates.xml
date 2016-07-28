@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 OpsWay. All rights reserved.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="test_email" label="Label Of Your Template File" file="testing_template.html" type="html" module="OpsWay_EmailAmazonSES" area="adminhtml"/>
+</config>

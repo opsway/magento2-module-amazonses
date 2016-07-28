@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2016 OpsWay. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \OpsWay\EmailAmazonSES\Block\Page\System\Config\Test\Test
+ * @var $jsonHelper \Magento\Framework\Json\Helper\Data
+ */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+?>
+
+<script>
+    require([
+        'prototype'
+    ], function () {
+        window.sendTestMessage = function(){
+            jQuery.ajax( {
+                url: '<?= /* @escapeNotVerified */ $block->getTestUrl() ?>',
+                data: {form_key: window.FORM_KEY},
+                type: 'POST'
+            }).done(function(a) {
+                console.log(a);
+            });
+        }
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

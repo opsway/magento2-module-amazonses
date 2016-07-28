@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 OpsWay. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="OpsWayemailsettings" translate="label" type="text" sortOrder="1100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Mail Settings</label>
+            <tab>general</tab>
+            <resource>OpsWay_EmailAmazonSES::config_emailamazonses</resource>
+            <group id="ses" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Amazon SES</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="keyId" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Key ID</label>
+                </field>
+                <field id="privateKey" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Secret Access Key</label>
+                </field>
+            </group>
+            <group id="test" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Test Settings</label>
+                <field id="testEmail" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test Email</label>
+                </field>
+                <field id="fromEmail" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test From Email</label>
+                </field>
+                <field id="test_email_settings" translate="label comment" type="button" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send a test message</label>
+                    <frontend_model>OpsWay\EmailAmazonSES\Block\Page\System\Config\Test\Test</frontend_model>
+                    <comment>This action will send a message in order to test module configuration.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
