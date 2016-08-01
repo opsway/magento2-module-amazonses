@@ -32,7 +32,6 @@ class SESStrategy implements StrategyInterface
     {
         $this->helper = $helper;
         $this->config = $this->helper->getAmazonSettings();
-        var_dump($this->config);
         $this->host = Uri::factory($this->host);
     }
 
@@ -56,7 +55,6 @@ class SESStrategy implements StrategyInterface
             $client->setEncType(Http::ENC_URLENCODED);
             $client->setParameterPost($this->generateParams());
             $response = $client->request(Http::POST);
-            var_dump($response->asString());
 
             return $response->getRawBody();
         }

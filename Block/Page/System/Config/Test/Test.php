@@ -66,7 +66,7 @@ class Test extends \Magento\Config\Block\System\Config\Form\Field
             'Magento\Backend\Block\Widget\Button'
         )->setData(
             [
-                'id' => 'reset_to_default_button',
+                'id' => 'send_amazon',
                 'label' => __('Send'),
                 'onclick' => 'javascript:sendTestMessage(); return false;',
             ]

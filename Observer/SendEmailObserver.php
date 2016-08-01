@@ -31,7 +31,7 @@ class SendEmailObserver implements ObserverInterface
         $targetClass = $observer->getData('context');
         $this->strategy->setMail($targetClass->getMessage());
 
-        if ($targetClass->getStrategy() == null) {
+        if ($targetClass->getStrategy() == null && $this->strategy->isEnabled()) {
             $targetClass->setStrategy($this->strategy);
         }
     }

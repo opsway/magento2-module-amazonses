@@ -8,7 +8,7 @@ use Magento\Framework\Mail\MessageInterface;
 use Magento\Framework\Event\Manager as EventManager;
 use OpsWay\EmailAmazonSES\Model\Strategy\StrategyInterface;
 
-class AmazonSES extends \Zend_Mail_Transport_Sendmail implements \Magento\Framework\Mail\TransportInterface
+class Transport extends \Zend_Mail_Transport_Sendmail implements \Magento\Framework\Mail\TransportInterface
 {
     /**
      * @var \Magento\Framework\Mail\MessageInterface
@@ -26,7 +26,7 @@ class AmazonSES extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
     protected $eventManager;
 
     /**
-     * @var \OpsWay\EmailAmazonSES\Model\Strategy\StrategyInterface
+     * @var Strategy
      */
     protected $strategy;
 
@@ -54,10 +54,10 @@ class AmazonSES extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
     }
 
     /**
-     * @param \OpsWay\EmailAmazonSES\Model\Strategy\StrategyInterface $strategy
+     * @param $strategy
      * @return $this
      */
-    public function setStrategy(StrategyInterface $strategy)
+    public function setStrategy($strategy)
     {
         $this->strategy = $strategy;
 
@@ -65,7 +65,7 @@ class AmazonSES extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
     }
 
     /**
-     * @return \OpsWay\EmailAmazonSES\Model\Strategy\StrategyInterface
+     * @return Strategy
      */
     public function getStrategy()
     {

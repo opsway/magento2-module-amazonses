@@ -25,7 +25,7 @@
                     <label>Secret Access Key</label>
                 </field>
             </group>
-            <group id="test" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="test" translate="label" type="text" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Test Settings</label>
                 <field id="testEmail" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Test Email</label>
@@ -34,7 +34,7 @@
                     <label>Test From Email</label>
                 </field>
                 <field id="test_email_settings" translate="label comment" type="button" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Send a test message</label>
+                    <label>Send a test message using Amazon SES</label>
                     <frontend_model>OpsWay\EmailAmazonSES\Block\Page\System\Config\Test\Test</frontend_model>
                     <comment>This action will send a message in order to test module configuration.</comment>
                 </field>
