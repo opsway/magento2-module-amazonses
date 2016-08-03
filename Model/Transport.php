@@ -13,22 +13,22 @@ class Transport extends \Zend_Mail_Transport_Sendmail implements \Magento\Framew
     /**
      * @var \Magento\Framework\Mail\MessageInterface
      */
-    protected $message;
+    private $message;
 
     /**
      * @var \OpsWay\EmailAmazonSES\Helper\Data
      */
-    protected $helper;
+    private $helper;
 
     /**
      * @var \Magento\Framework\Event\Manager
      */
-    protected $eventManager;
+    private $eventManager;
 
     /**
      * @var Strategy
      */
-    protected $strategy;
+    private $strategy;
 
     /**
      * @param MessageInterface $message

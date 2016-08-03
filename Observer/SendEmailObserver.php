@@ -13,7 +13,7 @@ class SendEmailObserver implements ObserverInterface
     /**
      * @var \OpsWay\EmailAmazonSES\Model\Strategy\StrategyInterface
      */
-    protected $strategy;
+    private $strategy;
 
     /**
      * @param \OpsWay\EmailAmazonSES\Model\Strategy\SESStrategy $strategy

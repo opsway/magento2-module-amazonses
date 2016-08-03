@@ -14,16 +14,16 @@ class SESStrategy implements StrategyInterface
     /**
      * @var \OpsWay\EmailAmazonSES\Helper\Data
      */
-    protected $helper;
+    private $helper;
 
     /**
      * @var \Magento\Framework\Mail\Message
      */
-    protected $mail;
+    private $mail;
 
-    protected $host = 'https://email.us-east-1.amazonaws.com';
+    private $host = 'https://email.us-east-1.amazonaws.com';
 
-    protected $config;
+    private $config;
 
     /**
      * @param \OpsWay\EmailAmazonSES\Helper\Data $helper
@@ -46,11 +46,11 @@ class SESStrategy implements StrategyInterface
 
             $client = new Http($this->host);
             $client->setMethod(Http::POST);
-            $client->setHeaders(array(
+            $client->setHeaders([
                 'Date' => $date,
                 'X-Amzn-Authorization' => $this->_buildAuthKey($date),
                 'Content-Type' => 'application/x-www-form-urlencoded'
-            ));
+            ]);
             $client->resetParameters();
             $client->setEncType(Http::ENC_URLENCODED);
             $client->setParameterPost($this->generateParams());
@@ -99,14 +99,15 @@ class SESStrategy implements StrategyInterface
      */
     private function _buildAuthKey($date)
     {
-        return sprintf('AWS3-HTTPS AWSAccessKeyId=%s,Algorithm=HmacSHA256,Signature=%s', $this->config['keyId'], base64_encode(hash_hmac('sha256', $date, $this->config['privateKey'], true)));
+        return 'AWS3-HTTPS AWSAccessKeyId=' . $this->config['keyId'] .
+            ',Algorithm=HmacSHA256,Signature=' . base64_encode(hash_hmac('sha256', $date, $this->config['privateKey'], true));
     }
 
     /**
      * @param $message
      * @return null
      */
-    protected function extractHtml($message)
+    private function extractHtml($message)
     {
         $body = $message->getBody();
 
@@ -120,7 +121,7 @@ class SESStrategy implements StrategyInterface
     /**
      * @return string
      */
-    protected function getMailType()
+    private function getMailType()
     {
         $body = $this->mail->getBody();
 
@@ -135,7 +136,7 @@ class SESStrategy implements StrategyInterface
      * @param $message
      * @return null
      */
-    protected function extractText($message)
+    private function extractText($message)
     {
         $body = $message->getBody();
 
@@ -153,14 +154,14 @@ class SESStrategy implements StrategyInterface
     /**
      * @return array
      */
-    protected function generateParams()
+    private function generateParams()
     {
-        $params = array(
+        $params = [
             'Action' => 'SendEmail',
             'Source' => $this->mail->getFrom(),
             'Message.Body.Html.Data' => $this->extractHtml($this->mail),
             'Message.Subject.Data' => $this->mail->getSubject()
-        );
+        ];
 
         $recipients = $this->mail->getRecipients();
         $i = 0;

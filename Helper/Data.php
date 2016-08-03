@@ -7,20 +7,18 @@ namespace OpsWay\EmailAmazonSES\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Encryption\EncryptorInterface;
 
 class Data extends AbstractHelper
 {
     /**
      * @var ScopeConfigInterface
      */
-    protected $config;
+    private $config;
 
     /**
      * @param ScopeConfigInterface $scopeConfig
-     * @param EncryptorInterface $config
      */
-    public function __construct(ScopeConfigInterface $scopeConfig, EncryptorInterface $config)
+    public function __construct(ScopeConfigInterface $scopeConfig)
     {
         $this->config = $scopeConfig;
     }

@@ -13,12 +13,12 @@ class Send extends \Magento\Backend\App\Action
     /**
      * @var \Magento\Framework\Controller\Result\JsonFactory
      */
-    protected $resultJsonFactory;
+    private $resultJsonFactory;
 
     /**
      * @var \Magento\Framework\Mail\Message
      */
-    protected $message;
+    private $message;
 
     /**
      * @param \Magento\Backend\App\Action\Context $context

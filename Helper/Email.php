@@ -10,29 +10,29 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
-    protected $_scopeConfig;
+    protected $scopeConfig;
 
     /**
      * Store manager
      *
      * @var \Magento\Store\Model\StoreManagerInterface
      */
-    protected $_storeManager;
+    private $storeManager;
 
     /**
      * @var \Magento\Framework\Translate\Inline\StateInterface
      */
-    protected $inlineTranslation;
+    private $inlineTranslation;
 
     /**
      * @var \Magento\Framework\Mail\Template\TransportBuilder
      */
-    protected $_transportBuilder;
+    private $transportBuilder;
 
     /**
      * @var string
      */
-    protected $temp_id;
+    private $temp_id;
 
     /**
      * @param \Magento\Framework\App\Helper\Context $context
@@ -46,11 +46,11 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder
     ) {
-        $this->_scopeConfig = $context;
+        $this->scopeConfig = $context;
         parent::__construct($context);
-        $this->_storeManager = $storeManager;
+        $this->storeManager = $storeManager;
         $this->inlineTranslation = $inlineTranslation;
-        $this->_transportBuilder = $transportBuilder;
+        $this->transportBuilder = $transportBuilder;
     }
 
     /**
@@ -63,7 +63,7 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $this->inlineTranslation->suspend();
 
-        $transport = $this->_transportBuilder
+        $transport = $this->transportBuilder
             ->setTemplateIdentifier('test_email')
             ->setTemplateOptions(
                 [
