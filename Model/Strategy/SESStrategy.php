@@ -21,7 +21,7 @@ class SESStrategy implements StrategyInterface
      */
     private $mail;
 
-    private $host = 'https://email.us-east-1.amazonaws.com';
+    private $host = 'https://email.us-west-2.amazonaws.com';
 
     private $config;
 
@@ -44,7 +44,9 @@ class SESStrategy implements StrategyInterface
         if ($this->isEnabled()) {
             $date = gmdate('D, d M Y H:i:s O');
 
-            $client = new Http($this->host);
+            $host = $this->config['host'] ? $this->config['host'] : $this->host;
+
+            $client = new Http($host);
             $client->setMethod(Http::POST);
             $client->setHeaders([
                 'Date' => $date,

@@ -76,8 +76,10 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
             ->addTo($receiverInfo['email'], $receiverInfo['name'])
             ->getTransport();
 
-        $transport->sendMessage();
+        $result = $transport->sendMessage();
 
         $this->inlineTranslation->resume();
+
+        return $result;
     }
 }

@@ -24,6 +24,9 @@
                 <field id="privateKey" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Secret Access Key</label>
                 </field>
+                <field id="host" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Host</label>
+                </field>
             </group>
             <group id="test" translate="label" type="text" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Test Settings</label>
