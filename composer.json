@@ -2,7 +2,7 @@
   "name": "opsway/module-amazonses",
   "description": "A Magento 2 Amazon SES module",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "BSD-4",
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0"
