@@ -21,8 +21,9 @@
                 <field id="keyId" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Access Key ID</label>
                 </field>
-                <field id="privateKey" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="privateKey" translate="label" type="obscure" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Secret Access Key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                 </field>
                 <field id="host" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Host</label>
