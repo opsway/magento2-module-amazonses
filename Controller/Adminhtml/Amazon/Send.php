@@ -44,7 +44,7 @@ class Send extends \Magento\Backend\App\Action
         $fromEmail = $this->_objectManager->get('OpsWay\EmailAmazonSES\Helper\Data')->getFromEmail();
 
         $receiverInfo = [
-            'name' => 'Reciver Name',
+            'name' => 'Receiver Name',
             'email' => $email
         ];
 
